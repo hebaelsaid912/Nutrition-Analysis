@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1,2,3,4,5"
+   >
+
+    <TableRow >
+
+        <TextView
+            android:id="@+id/qty_data_tv"
+            android:layout_column="1"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:fontFamily="@font/gilroy_light"
+            android:textColor="@color/primaryColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/unit_data_tv"
+            android:layout_column="1"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:fontFamily="@font/gilroy_light"
+            android:textColor="@color/primaryColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/food_data_tv"
+            android:layout_column="1"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:fontFamily="@font/gilroy_light"
+            android:textColor="@color/primaryColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/calories_data_tv"
+            android:layout_column="1"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:fontFamily="@font/gilroy_light"
+            android:textColor="@color/primaryColor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/weight_data_tv"
+            android:layout_column="1"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:fontFamily="@font/gilroy_light"
+            android:textColor="@color/primaryColor"
+            android:textSize="16sp" />
+    </TableRow>
+</TableLayout>

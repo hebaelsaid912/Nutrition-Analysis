@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.full_calculator.FullNutritionCalculateActivity">
+
+        <TextView
+            android:id="@+id/nutrition_facts_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gilroy_bold"
+            android:text="@string/nutrition_facts"
+            android:textColor="@color/secondaryColor"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/card"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginBottom="600dp" />
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/loading_nutrition_data"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/loading2"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/nutrition_facts_title_tv" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:outlineSpotShadowColor="@color/primaryColor"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/nutrition_facts_title_tv">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/amount_per_serving_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_light"
+                    android:text="@string/amount_per_serving"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/calories_title_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@+id/calories_value_tv"
+                        android:fontFamily="@font/gilroy_bold"
+                        android:text="@string/calories"
+                        android:textColor="@color/secondaryColorLight"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/calories_value_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/gilroy_light"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textColor="@color/secondaryColorLight"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1,2,3"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/card">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/p_value"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/total_fat"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/total_fat_value"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/total_fat_p_value"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/saturated_fat"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/saturated_fat_value"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/saturated_fat_p_value"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/trans_fat"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/trans_fat_value"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/trans_fat_p_value"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/cholesterol"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/cholesterol_value"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/cholesterol_p_value"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/sodium"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/sodium_value"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/sodium_p_value"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/total_carbohydrate"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/total_carbohydrate_value"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/total_carbohydrate_p_value"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/dietary_fiber"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/dietary_fiber_value"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/dietary_fiber_p_value"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/total_sugars"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/total_sugars_value"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/total_sugars_p_value"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/includes"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/includes_value"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/includes_p_value"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/protein"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/protein_value"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/protein_p_value"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/vitamin"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/vitamin_value"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/vitamin_p_value"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/calcium"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/calcium_value"
+                    android:layout_height="match_parent"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/calcium_p_value"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/iron"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/iron_value"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/iron_p_value"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="@string/potassium"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/potassium_value"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/potassium_p_value"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_light"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/gilroy_light"
+            android:gravity="center_horizontal"
+            android:text="@string/percent_daily_values_are_based_on_a_2000_calorie_diet"
+            android:textColor="@color/primaryColor"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/guideline1"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

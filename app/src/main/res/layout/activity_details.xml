@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".ui.details.DetailsActivity">
+
+        <TextView
+            android:id="@+id/details_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gilroy_bold"
+            android:text="@string/ingredient_details"
+            android:textColor="@color/secondaryColor"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_goneMarginBottom="600dp"
+            app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/loading_ingredient_data"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/loading2"
+            app:layout_constraintBottom_toTopOf="@+id/calculate_btn"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/details_title_tv" />
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:stretchColumns="1,2,3,4,5"
+            app:layout_constraintBottom_toTopOf="@+id/calculate_btn"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/details_title_tv">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:layout_weight="1"
+                    android:text="@string/qty"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:layout_weight="1"
+                    android:text="@string/unit"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:layout_weight="1"
+                    android:text="@string/food"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:layout_weight="1"
+                    android:text="@string/calories"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_column="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:layout_weight="1"
+                    android:text="@string/weight"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="18sp" />
+            </TableRow>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/details_rv"
+                tools:listitem="@layout/ingredient_details_list" />
+
+        </TableLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/calculate_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/secondaryColorLight"
+            android:fontFamily="@font/gilroy_bold"
+            android:padding="15dp"
+            android:text="@string/calculate"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="20dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

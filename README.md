@@ -28,7 +28,7 @@ IDE : Android Studio Gradle Version : 7.0.2 Compile Sdk : 31
 - Lifecycle - dispose of observing data when lifecycle state changes.
 - ViewModel - UI related data holder, lifecycle aware.
 - Architecture
-  - MVVM Architecture ( DataBinding - ViewModel ).
+  - MVVM Architecture ( DataBinding - ViewModel - Repository ).
 
 - Retrofit2 & Gson - construct the REST APIs.
 - Dependency Injection
